@@ -1,0 +1,46 @@
+﻿@model List<Categories>
+<table class="table table-bordered table-striped">
+   <div class="container">
+       <div class="row pt-4">
+
+           <div class="col-6">
+               <h2 class="text-primary">
+                   Category List
+               </h2>
+           </div>
+           <div class="col-6 text-end">
+              
+           </div>
+
+       </div>
+    <thead>
+    <tr>
+        <td>
+            ID
+        </td>
+        <td>
+            Name
+        </td>
+        <td>
+            Display Order
+        </td>
+
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model) {
+            <tr>
+                <td>
+               @obj.CategoryId
+            </td>
+            <td>
+                @obj.Name
+            </td>
+            <td>
+               @obj.OrderDisplay
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+</div>
