@@ -1,6 +1,7 @@
 ﻿using Bulky_Project.Data;
 using Bulky_Project.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Bulky_Project.Controllers
 {
@@ -11,9 +12,9 @@ namespace Bulky_Project.Controllers
         {
                 _db = db;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-           List<Categories> categories = _db.Categories.ToList();
+           List<Categories> categories = await _db.Categories.ToListAsync();
             return View(categories);
         }
     }
