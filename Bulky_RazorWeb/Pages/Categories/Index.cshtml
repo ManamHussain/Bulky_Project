@@ -1,57 +1,42 @@
 ﻿@page
 @model Bulky_RazorWeb.Pages.Categories.IndexModel
 
-<table class="table table-bordered table-striped">
-    <div class="container">
-        <div class="row pt-4">
-
-            <div class="col-6 pb-3">
-                <h2 class="text-primary">
-                    Category List
-                </h2>
-            </div>
-            <div class="col-6 text-end">
-                <a asp-page="Categories/Create" class="btn btn-primary">
-                    <i class="bi bi-plus-circle"></i> Create New Category
-                </a>
-            </div>
-
+<div class="container">
+    <div class="row pt-4">
+        <div class="col-6 pb-3">
+            <h2 class="text-primary">
+                Category List
+            </h2>
         </div>
-    <thead class="text-center">
-    <td>
-        ID
-    </td>
-    <td>
-        Name
-    </td>
-    <td>
-        Display Order
-    </td>
-    <td>
-        Action
-    </td>
+        <div class="col-6 text-end">
+            <a asp-page="/Categories/Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Create New Category
+            </a>
+        </div>
+    </div>
 
-    </tr>
-    </thead>
-    <tbody class="text-center">
-            @foreach (var obj in Models.CategoriesList)
-            {
+    <table class="table table-bordered table-striped">
+        <thead class="text-center">
             <tr>
-                <td>
-                        @obj.CategoryId
-                </td>
-                <td>
-                        @obj.Name
-                </td>
-                <td>
-                        @obj.OrderDisplay
-                </td>
-                <td>
-                    <a asp-page="category/edit" class="btn btn-outline-info" asp-route-Id="@obj.CategoryId">Edit</a>
-                    <a asp-page="category/delete" class="btn btn-outline-danger" asp-route-Id="@obj.CategoryId">Delete</a>
-                </td>
-
+                <th>ID</th>
+                <th>Name</th>
+                <th>Display Order</th>
+                <th>Action</th>
             </tr>
+        </thead>
+        <tbody class="text-center">
+            @foreach (var obj in Model.CategoriesList)
+            {
+                <tr>
+                    <td>@obj.CategoryId</td>
+                    <td>@obj.Name</td>
+                    <td>@obj.OrderDisplay</td>
+                    <td>
+                        <a asp-page="/Categories/Edit" class="btn btn-outline-info" asp-route-Id="@obj.CategoryId">Edit</a>
+                        <a asp-page="/Categories/Delete" class="btn btn-outline-danger" asp-route-Id="@obj.CategoryId">Delete</a>
+                    </td>
+                </tr>
             }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</div>
