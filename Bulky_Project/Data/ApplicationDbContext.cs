@@ -5,7 +5,7 @@ namespace Bulky_Project.Data
 {
     public class ApplicationDbContext:DbContext
     {
-        internal readonly object categories;
+       // internal readonly object categories;
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {

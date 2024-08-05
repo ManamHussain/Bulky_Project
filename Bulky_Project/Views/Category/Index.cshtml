@@ -1,20 +1,23 @@
 ﻿@model List<Categories>
+<partial name="_Notification" />
+
 <table class="table table-bordered table-striped">
    <div class="container">
        <div class="row pt-4">
 
-           <div class="col-6">
+            <div class="col-6 pb-3">
                <h2 class="text-primary">
                    Category List
                </h2>
            </div>
            <div class="col-6 text-end">
-              
+              <a asp-action="Create" class="btn btn-primary">
+                  <i class="bi bi-plus-circle"></i> Create New Category
+                </a>
            </div>
 
        </div>
-    <thead>
-    <tr>
+    <thead class="text-center">
         <td>
             ID
         </td>
@@ -24,10 +27,13 @@
         <td>
             Display Order
         </td>
+        <td>
+            Action
+        </td>
 
     </tr>
     </thead>
-    <tbody>
+    <tbody class="text-center">
         @foreach (var obj in Model) {
             <tr>
                 <td>
@@ -39,8 +45,12 @@
             <td>
                @obj.OrderDisplay
             </td>
+            <td>
+            <a asp-action="Edit" class="btn btn-outline-info" asp-route-Id="@obj.CategoryId">Edit</a>
+            <a asp-action="Delete" class="btn btn-outline-danger" asp-route-Id="@obj.CategoryId">Delete</a>
+            </td>
+        
         </tr>
         }
     </tbody>
 </table>
-</div>
